@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<!-- 定义工厂级生命周期接口. -->
+	<bean id="beanFactoryPostProcessor" class="com.example.demo.MyBeanFactoryPostProcessor"></bean>
+
+	<!-- 定义容器级生命周期接口. -->
+	<bean id="beanPostProcessor" class="com.example.demo.MyBeanPostProcessor"></bean>
+	<bean id="instantiationAwareBeanPostProcessor"
+		class="com.example.demo.MyInstantiationAwareBeanPostProcessor"></bean>
+
+	<!-- 定义Bean自身及Bean级生命周期接口. -->
+	<bean id="person" class="com.example.demo.Person"
+		init-method="myInit" destroy-method="myDestory" scope="singleton">
+		<property name="name" value="熊燕子"></property>
+		<property name="address" value="南京"></property>
+		<property name="phone" value="60110"></property>
+	</bean>
+
+</beans>
